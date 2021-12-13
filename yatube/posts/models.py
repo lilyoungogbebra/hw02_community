@@ -14,14 +14,15 @@ class Post(models.Model):
     )
     group = models.ForeignKey(
         'Group',
-        blank = True, null = True,
-        on_delete = models.CASCADE
+        blank=True, null=True,
+        on_delete=models.CASCADE
     )
+
 
 class Group(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=20, unique=True, null=False)
     description = models.TextField()
-    
+
     def __str__(self):
         return self.title

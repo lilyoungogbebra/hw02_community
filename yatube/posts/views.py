@@ -8,7 +8,7 @@ from .models import Group
 def index(request):
     # Одна строка вместо тысячи слов на SQL:
     # в переменную posts будет сохранена выборка из 10 объектов модели Post,
-    # отсортированных по полю pub_date по убыванию 
+    # отсортированных по полю pub_date по убыванию
     # (от больших значений к меньшим)
     name = 'Автор: Лев Толстой'
     text = 'Это главная страница проекта Yatube'
@@ -22,8 +22,8 @@ def index(request):
     return render(request, 'posts/index.html', context)
 
 
-def group_posts(request, slug): 
-    # Функция get_object_or_404 получает по заданным критериям объект 
+def group_posts(request, slug):
+    # Функция get_object_or_404 получает по заданным критериям объект
     # из базы данных или возвращает сообщение об ошибке, если объект не найден.
     # В нашем случае в переменную group будут переданы объекты модели Group,
     # поле slug у которых соответствует значению slug в запросе
@@ -40,5 +40,4 @@ def group_posts(request, slug):
         'text': text,
         'name': name,
     }
-    return render(request, 'posts/group_list.html', context) 
-
+    return render(request, 'posts/group_list.html', context)
