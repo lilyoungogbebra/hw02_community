@@ -15,29 +15,22 @@
     <title>{{ title }}</title>
   </head>
   <body>
-    {% comment %} <header> {% endcomment %}
-      {% comment %} {% include 'includes/header.html' %} {% endcomment %}
-    {% comment %} </header> {% endcomment %}
-    <main> 
-      {% for post in posts %}
-        <ul>
-          <li>
-            Автор: {{ post.author.get_full_name }}
-          </li>
-          <li>
-            Дата публикации: {{ post.pub_date|date:"d E Y" }}
-          </li>
-        </ul>
-        <p>{{ post.text }}</p>    
-        <a href="" > все записи группы </a>
-        {% if not forloop.last %}<hr>{% endif %}
-      {% endfor %} 
-      {% comment %} {% block content %} {% endcomment %}
-        {% comment %} <h1>{{title}}</h1> {% endcomment %}
-      {% comment %} {% endblock %} {% endcomment %}
-    </main>
-    {% comment %} <footer> {% endcomment %}
-      {% comment %} {% include 'includes/footer.html' %} {% endcomment %}
-    {% comment %} </footer> {% endcomment %}
+    {% block content %}
+      <main> 
+        {% for post in posts %} 
+        <ul> 
+          <li> 
+            Автор: {{ post.author.get_full_name }} 
+          </li> 
+          <li> 
+            Дата публикации: {{ post.pub_date|date:"d E Y" }} 
+          </li> 
+        </ul> 
+        <p>{{ post.text }}</p>     
+        <a href="" > все записи группы </a> 
+        {% if not forloop.last %}<hr>{% endif %} 
+        {% endfor %}
+      </main>
+    {% endblock %}
   </body>
 </html>

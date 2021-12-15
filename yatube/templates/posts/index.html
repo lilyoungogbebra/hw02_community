@@ -23,14 +23,3 @@
 <a href=" {% url 'сообщений: group_list' post.group%} " > все записи группы: {{post.group}}</a>
 {% if not forloop.last %}<hr>{% endif %}
 {% endfor %} 
-
-{% comment %} {%block content%} {% endcomment %}
-  {% comment %} <div class="container py-5">      {% endcomment %}
-    {% comment %} <h1>{{ title }}</h1> {% endcomment %}
-      {% comment %} <a href="{% url 'page:group_page' page.slug %}"> {% endcomment %}
-        {% comment %} все записи группы {% endcomment %}
-      {% comment %} </a> {% endcomment %}
-  {% comment %} </div> {% endcomment %}
-{% comment %} {%endblock%} {% endcomment %}
-
-<!-- templates/posts/index.html -->
