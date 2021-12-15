@@ -3,7 +3,6 @@ from .models import Post
 from .models import Group
 
 
-
 def index(request):
     text = 'Это главная страница проекта Yatube'
     posts = Post.objects.order_by('-pub_date')[:10]
