@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-  {% for post in posts %}
+  {% for post in posts %} 
   <ul>  
     <li>  
       Автор: {{ post.author.get_full_name }}  
@@ -10,7 +10,7 @@
     </li>  
   </ul>  
   <p>{{ post.text }}</p>      
-  <a href="">все записи группы</a>  
+  <a href="{% url 'posts:group_posts' %}">все записи группы</a>  
   {% if not forloop.last %}<hr>{% endif %} 
   {% endfor %}
 {% endblock content %}         

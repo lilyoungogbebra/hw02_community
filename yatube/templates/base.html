@@ -1,7 +1,7 @@
 <!-- templates/base.html --> 
 <!DOCTYPE html> 
-{% load static %} 
-<html lang="ru"> 
+{% load static %}
+<html lang="ru">
   <head> 
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -13,14 +13,14 @@
     <meta name="theme-color" content="#ffffff"> 
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> 
     <title>{{ title }}</title> 
-  </head> 
+  </head>  
   <body> 
     <header> 
       {% include 'includes/header.html' %} 
     </header>  
       <main>  
         {% block content %}
-          {% for post in posts %}  
+          {% comment %} {% for post in posts %}
           <ul>  
             <li>  
               Автор: {{ post.author.get_full_name }}  
@@ -30,9 +30,9 @@
             </li>  
           </ul>  
           <p>{{ post.text }}</p>      
-          <a href="">все записи группы</a>  
+          <a href="{% url 'posts:group_posts' %}">все записи группы</a>  
           {% if not forloop.last %}<hr>{% endif %}  
-          {% endfor %}   
+          {% endfor %}  {% endcomment %}
         {% endblock content %}
       </main>
       <footer> 
