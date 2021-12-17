@@ -6,10 +6,12 @@ from .models import Group
 def index(request):
     text = 'Это главная страница проекта Yatube'
     posts = Post.objects.order_by('-pub_date')[:10]
+    title = 'Последние обновления на сайте'
     # В словаре context отправляем информацию в шаблон
     context = {
         'posts': posts,
         'text': text,
+        'title': title
     }
     return render(request, 'posts/index.html', context)
 
@@ -17,10 +19,12 @@ def index(request):
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
     text = 'Здесь будет информация о группах проекта Yatube'
+    title = 'Последние обновления на сайте'
     posts = Post.objects.filter(group=group).order_by('-pub_date')[:10]
     context = {
         'group': group,
         'posts': posts,
         'text': text,
+        'title': title
     }
     return render(request, 'posts/group_list.html', context)
