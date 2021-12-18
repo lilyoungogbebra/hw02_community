@@ -1,6 +1,7 @@
-{% extends 'base.html' %} 
-{% load static %} 
-{% block content %} 
+{% extends 'base.html' %}
+{% load static %}  
+{% block content %}
+  <h6>Последние обновления на сайте</h6> 
   {% for post in posts %}   
   <ul>   
     <li>   
@@ -11,7 +12,6 @@
     </li>   
   </ul>   
   <p>{{ post.text }}</p>
-  <h1>{{ post.title }}</h1>
   {%if post.group %}       
     <a href="{% url 'posts:group_list' slug=post.group.slug %}">все записи группы</a>
   {% endif %}   

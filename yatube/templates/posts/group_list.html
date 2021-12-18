@@ -1,5 +1,6 @@
 {% extends 'base.html' %} 
-{% block content %} 
+{% block content %}
+  <h6>Название и описание группы</h6> 
   {% for post in posts %}  
   <ul>   
     <li>   
@@ -10,10 +11,6 @@
     </li>   
   </ul>   
   <p>{{ post.text }}</p>
-  <h1>{{ post.title }}</h1>
-  {%if post.group %}       
-    <a href="{% url 'posts:group_list' slug=post.group.slug %}">все записи группы</a>
-  {% endif %}
   {% if not forloop.last %}<hr>{% endif %}
   {% endfor %} 
 {% endblock content %}
