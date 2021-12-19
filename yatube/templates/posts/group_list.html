@@ -1,16 +1,19 @@
 {% extends 'base.html' %} 
 {% block content %}
-  <h6>Название и описание группы</h6> 
-  {% for post in posts %}  
-  <ul>   
-    <li>   
-      Автор: {{ post.author.get_full_name }}   
-    </li>   
-    <li>   
-      Дата публикации: {{ post.pub_date|date:"d E Y" }}   
-    </li>   
-  </ul>   
-  <p>{{ post.text }}</p>
-  {% if not forloop.last %}<hr>{% endif %}
-  {% endfor %} 
+<h1>{{ post.title }}</h1>
+      <p>
+        {{ group.description }}
+      </p> 
+        {% for post in posts %}  
+        <ul>   
+          <li>   
+            Автор: {{ post.author.get_full_name }}   
+          </li>   
+          <li>   
+            Дата публикации: {{ post.pub_date|date:"d E Y" }}   
+          </li>   
+        </ul>   
+        <p>{{ post.text }}</p>
+        {% if not forloop.last %}<hr>{% endif %}
+        {% endfor %} 
 {% endblock content %}
